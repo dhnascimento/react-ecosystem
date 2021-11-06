@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { createTodo } from "./actions";
+import { addTodoRequest } from "./thunks";
 import './NewTodoForm.css';
-
-// connect()(NewTodoForm);
 
 const NewTodoForm = ({ todos, onCreatePressed }) => {
     const [inputValue, setInputValue] = useState('');
@@ -26,7 +24,7 @@ const NewTodoForm = ({ todos, onCreatePressed }) => {
                     setInputValue('');
                 }
             }}
-            className="new-todo-button">Create TodoList</button>
+            className="new-todo-button">Create Todo</button>
         </div>
     );
 }
@@ -36,7 +34,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onCreatePressed: text => dispatch(createTodo(text))
+    onCreatePressed: text => dispatch(addTodoRequest(text))
 
 });
 
